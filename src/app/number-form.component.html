@@ -1,0 +1,18 @@
+<div class="number-form">
+    <form (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        [(ngModel)]="number"
+        name="number"
+        placeholder="Enter a number"
+        required
+      />
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Converting...' : 'Convert' }}
+      </button>
+    </form>
+    <div *ngIf="response" [ngClass]="response.status">
+      {{ response.status === 'success' ? response.words : response.message }}
+    </div>
+  </div>
+  
